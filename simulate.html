@@ -4,25 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="simulate.css">
-    <title>Simulation</title>
+    <title>Solar Energy Calculator</title>
 </head>
 <body>
+    <div id="bg">
+        <img id="bg_img" src="Simulate_bg.jpg">
+    </div>
 
     <div id="container">
-        <div id="Heading">Text Here</div>
+        <div id="Heading">Solar Energy Calculator</div>
         <div id="input_div">
-            <div class="input_text">Units Consumed(Monthly Average)</div>
+            <div class="input_text">Units Consumed (Monthly Average)</div>
             <div><input class="input_field" type="number" id="units" required /></div>
-            <div class="input_text">Average Sunlight hours a Day</div>
+            <div class="input_text">Average Sunlight Hours a Day</div>
             <div><input class="input_field" type="number" id="hours" required/></div>
             <button id="calc" onclick="Calculate()">Calculate</button>
         </div>
     </div>
 
+    <div id="output_holder">
+        <div class="display" id="p_req">
+            <span class="icon-info" onclick="showPopup('info1')">i</span>
+            <div class="result-text">Panels Required</div>
+        </div>
+        <div class="display" id="savings">
+            <span class="icon-info" onclick="showPopup('info2')">i</span>
+            <div class="result-text">Savings</div>
+        </div>
+        <div class="display" id="co2">
+            <span class="icon-info" onclick="showPopup('info3')">i</span>
+            <div class="result-text">CO2 Reduction</div>
+        </div>
+        <div class="display" id="tree">
+            <span class="icon-info" onclick="showPopup('info4')">i</span>
+            <div class="result-text">Trees Equivalent</div>
+        </div>
+    </div>
 
-    <p id="output">you'll need ........ solar panels</p>
+    <div id="popup" class="popup">
+        <span class="popup-close" onclick="closePopup()">×</span>
+        <div id="popup-content" class="popup-content">Justification text here...</div>
+    </div>
 
     <script src="simulate.js"></script>
-    
 </body>
 </html>
