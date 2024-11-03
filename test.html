@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Solar Revolution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #results {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Join the Solar Revolution</h1>
+    <form id="solarForm">
+        <label>Appliance (in Watts) and Hours Used:</label>
+        <input type="number" id="power" placeholder="Power in Watts" required>
+        <input type="number" id="hours" placeholder="Hours per day" required>
+        <button type="button" onclick="addAppliance()">Add Appliance</button>
+
+        <label>Location:</label>
+        <input type="text" id="location" placeholder="Your location" required>
+        
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    
+    <h3>Results:</h3>
+    <div id="results"></div>
+
+    <script>
+        let appliances = [];
+
+        function addAppliance() {
+            const power = document.getElementById('power').value;
+            const hours = document.getElementById('hours').value;
+            if (power && hours) {
+                appliances.push({ power: parseFloat(power), hours: parseFloat(hours) });
+                alert("Appliance added");
+                document.getElementById('power').value = '';
+                document.getElementById('hours').value = '';
+            }
+        }
+
+        function calculate() {
+            const location = document.getElementById('location').value;
+
+            const avgSunHours = 5;  // Average daily sunlight hours
+            const panelEfficiency = 0.18;  // 18% efficiency
+            const co2PerKwh = 0.92;  // CO2 reduction per kWh
+            const avgCostPerKwh = 0.15;  // Average cost per kWh in USD
+
+            // Calculate total power consumption from appliances
+            const totalPower = appliances.reduce((total, appliance) => total + (appliance.power * appliance.hours), 0);
+            const requiredKwhPerDay = totalPower / 1000;  // Convert to kWh
+
+            // Estimate required number of panels
+            const requiredPanels = Math.ceil(requiredKwhPerDay / (avgSunHours * panelEfficiency));
+
+            // Estimate monthly savings and CO2 reduction
+            const monthlyKwh = requiredKwhPerDay * 30;
+            const co2Reduced = monthlyKwh * co2PerKwh;
+            const treesEquivalent = co2Reduced / 21.77;  // Example conversion rate
+
+            const monthlySavings = monthlyKwh * avgCostPerKwh;
+
+            const results = `
+                <p>Required Panels: ${requiredPanels}</p>
+                <p>Monthly Savings: $${monthlySavings.toFixed(2)}</p>
+                <p>CO2 Reduced: ${co2Reduced.toFixed(2)} kg</p>
+                <p>Tree Equivalent: ${treesEquivalent.toFixed(2)} trees</p>
+            `;
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+</body>
+</html>

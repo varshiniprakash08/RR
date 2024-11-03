@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="simulate.css">
+    <title>Simulation</title>
+</head>
+<body>
+
+    <div id="container">
+        <div id="Heading">Text Here</div>
+        <div id="input_div">
+            <div class="input_text">Units Consumed(Monthly Average)</div>
+            <div><input class="input_field" type="number" id="units" required /></div>
+            <div class="input_text">Average Sunlight hours a Day</div>
+            <div><input class="input_field" type="number" id="hours" required/></div>
+            <button id="calc" onclick="Calculate()">Calculate</button>
+        </div>
+    </div>
+
+
+    <p id="output">you'll need ........ solar panels</p>
+
+    <script src="simulate.js"></script>
+    
+</body>
+</html>

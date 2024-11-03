@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+
+@font-face {
+    font-family: Bemirs;
+    src: url(BemirsDemoVersionRegular-X361d.otf);
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+#container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top:100px;
+
+}
+
+#Heading{
+    margin-bottom: 50px;
+    font-family: Bemirs;
+    font-size: 2rem;
+}
+
+#input_div{
+    border: solid 0.3px;
+    border-radius: 10px;
+    width:400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+}
+
+.input_text{
+    font-family: Bebas Neue;
+    margin-bottom:5px;
+    font-size: 1.2rem;
+}
+
+.input_field{
+    height:20px;
+    width:200px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border:solid 0.5px;
+    padding:15px;
+}
+
+#calc{
+    font-size: 1.2rem;
+    font-family: Bebas Neue;
+    border:solid 0.5px;
+    width:200px;
+    border-radius: 10px;
+    margin-top: 15px;
+
+
+}
