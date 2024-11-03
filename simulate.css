@@ -1,66 +1,159 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-.body{
-    min-height: 100vh;
-    min-width: 100vw;
-}
-
-
-@font-face {
-    font-family: Bemirs;
-    src: url(BemirsDemoVersionRegular-X361d.otf);
-  }
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-#container{
+/* General body styling */
+body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f7f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* Main container */
+#container {
+    background-color: #ffffff1a;
+    padding: 30px; /* Adjusted padding */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.118);
+    margin-bottom: 30px; /* Margin between input box and output boxes */
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+/* Heading */
+#Heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input styles */
+.input_text {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Input field styling */
+.input_field {
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    color: rgb(170, 170, 170);
+}
+
+/* Button styling */
+#calc {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#bg{
+    position: absolute;
+    z-index: -2;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+#bg_img{
+    width: 100vw;
+
+}
+
+/* Output container styling */
+#output_holder {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Output box styles */
+.display {
+    color:white;
+    position: relative;
+    background-color: #ffffff2e;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px; /* Increased width of each output box */
+    height: 140px; /* Increased height of each output box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Margin between output boxes */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    padding: 10px; /* Added padding for better text centering */
+    text-align: center; /* Center text horizontally */
+    backdrop-filter: blur(5px);
+}
+
+.display:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+    border-color: #4CAF50; /* Change border color on hover */
+}
+
+/* Info icon styles */
+.icon-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #4CAF50; /* Icon color */
+    background-color: white; /* Background color for round effect */
+    border: 2px solid #4CAF50; /* Border for the icon */
+    border-radius: 50%; /* Make it round */
+    width: 24px; /* Set width */
+    height: 24px; /* Set height */
+    display: flex; /* Flex for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.popup-content {
+    font-size: 16px;
+    color: #333;
     text-align: center;
-    margin-top:100px;
-
 }
 
-#Heading{
-    margin-bottom: 50px;
-    font-family: Bemirs;
-    font-size: 2rem;
+/* Close button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
-#input_div{
-    border: solid 0.3px;
-    border-radius: 10px;
-    width:400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding:10px;
+/* Blur effect */
+.blur {
+    filter: blur(4px);
 }
 
-.input_text{
-    font-family: Bebas Neue;
-    margin-bottom:5px;
-    font-size: 1.2rem;
+/* Ensuring popup does not blur */
+.popup.show {
+    display: block; /* Only show the popup when it is active */
 }
 
-.input_field{
-    height:20px;
-    width:200px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border:solid 0.5px;
-    padding:15px;
-}
-
-#calc{
-    font-size: 1.2rem;
-    font-family: Bebas Neue;
-    border:solid 0.5px;
-    width:200px;
-    border-radius: 10px;
-    margin-top: 15px;
-
-
-}
