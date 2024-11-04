@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400&display=swap" rel="stylesheet">
+    <title>ECO ENERGY</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d1115;
+            padding: 15px 50px; /* Increased padding for a wider header */
+            color: white;
+        }
+
+        #logo {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo_img {
+            margin-right: 10px;
+        }
+
+        #title {
+            font-size: 2em; /* Increased font size for title */
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif; /* Different font for title */
+        }
+
+        #acess_bar {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center; /* Added gap between links */
+        }
+
+        .link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em; /* Increased font size for links */
+            font-weight: 600;
+            transition: color 0.3s;
+            justify-content: center; /* Smooth transition for color change */
+        }
+
+        .link:hover {
+            color: #8bda3d; /* Change link color on hover */
+            text-decoration: underline;
+        }
+
+        /* Welcome section styles */
+        #welcome {
+            position: relative;
+            text-align: center;
+            color: white;
+            background-image: url('https://wallpaperaccess.com/full/1743472.jpg');
+            background-size:cover;
+            height: 100vh;
+            background-position: center;
+            /*height: 700px; /* Adjust height as necessary */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        #welcome_text {
+            font-size: 3em; /* Increased font size for welcome text */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            animation: slideIn 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Main content styles */
+        
+        #features_holder {
+            margin-top: 20px;
+        }
+
+        #features_titles {
+            font-size: 1.8em; /* Larger feature title */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            background: #37283f;
+            color: white;
+            padding: 10px; /* Increased padding */
+            border-radius: 5px;
+            margin: 8px 0; /* More margin for spacing */
+            transition: transform 0.3s;
+            font-size: 1.1em; /* Increased font size for features */
+        }
+
+        .features:hover {
+            transform: translateY(-5px); /* Subtle lift on hover */
+        }
+
+        /* Button styles */
+        #buy_now {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            /*margin-top: 20px;*/
+        }
+
+        #buy_now:hover {
+            background-color: #218838;
+        }
+
+        .element-to-appear {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+          }
+          
+          .element-to-appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          
+          @media (max-width: 1024px) {
+            #welcome {
+              background-attachment: scroll; /* Disable fixed attachment for better performance */
+            }
+          }
+          @media (max-width: 768px) {
+            #welcome {
+              background-position: center top;
+              background-attachment: scroll; /* Disable fixed attachment for better performance */
+            }
+            .header {
+                padding: 5px 5px; /* Increased padding for a wider header */
+            }
+            #title {
+                font-size: 1.5em; /* Increased font size for title */
+            }
+    
+            #acess_bar {  
+                gap: 10px;
+            }
+    
+            .link {
+                font-size: 1em; /* Increased font size for links */
+                }
+            #buy_now {
+                padding: 5px 5px;
+            }
+            #grid-container{
+                grid-template-columns: 50vh 20vh;
+            }
+          }
+        #grid-container{
+            display: grid;
+            grid-template-columns: 80vh 50vh;
+            gap:50px;
+            justify-content: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }  
+        .card-one{
+           font-family:cursive;
+           font-size:25px;
+           font-style: italic;
+           color: rgb(164, 106, 31);
+        }
+        .pcard{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 17px;
+            color: #37283f;
+        }
+        .psec-card{
+            font-family:cursive;
+           font-size:25px;
+           font-style: italic;
+        }
+    </style>
+</head>
+<div>
+    <!-- Header -->
+    <div class="header">
+        <div id="logo">
+            <img id="logo_img" src="LOGO_.jpg" width="50px" height="50px" alt="Eco Energy Logo">
+            <div id="title">ECO ENERGY</div>
+        </div>
+        <div id="acess_bar">
+            <a href="index.html" class="link">Home</a>
+            <a href="simulate.html" class="link">Simulate</a>
+            <a href="https://www.amazon.com/s?k=solar+panels" target="_blank" id="buy_now">Buy Now</a>
+        </div>
+    </div>
+
+    <!-- Welcome section -->
+    <div id="welcome">
+        <div id="welcome_text">JOIN THE SOLAR REVOLUTION</div>
+    </div>
+
+    <!-- Main content -->
+<!--      
+    <div id="content_Holder">
+        <div id="headline">Save Money, Protect the Environment, and Power Your Life Sustainably.</div>
+        <div id="intro">
+            <p>Switching to solar energy is one of the best ways to reduce your energy bills and contribute to a cleaner planet. With solar power, you can harness the energy of the sun to power your home, reduce your carbon footprint, and make a smart, eco-friendly investment. Our tool helps you discover just how much you can save and what impact you’ll make.</p>
+        </div>
+        <div id="features_holder">
+            <div id="features_titles">Feature Highlights</div>
+            <br id="features_Highlights">
+                <div class="features">Calculate Your Solar Potential</div></br>
+                <div class="features">See Your Savings</div></br>
+                <div class="features">Environmental Impact</div></br>
+            </div>
+        </div> -->
+    
+    <div id="grid-container">
+          
+    <div class="card-one card">Save Money, Protect the Environment, and Power Your Life Sustainably.
+    <p class="pcard">Switching to solar energy is one of the best ways to reduce your energy bills and contribute to a cleaner planet. With solar power, you can harness the energy of the sun to power your home, reduce your carbon footprint, and make a smart, eco-friendly investment. Our tool helps you discover just how much you can save and what impact you’ll make.</p>
+    </div>
+    <div class="second-card card" >
+        <div class="psec-card">Feature Highlights</div>
+        <br >
+            <div class="features">Calculate Your Solar Potential</div></br>
+            <div class="features">See Your Savings</div></br>
+            <div class="features">Environmental Impact</div></br>
+    </div>
+    
+    </div>
+    </div>
+
+
+    <script src="index.js">
+        
+    </script>
+</body>
+</html>
+
+
